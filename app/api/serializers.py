@@ -27,7 +27,7 @@ class TypeSerializer(serializers.ModelSerializer):
 class TaskSerializer(serializers.ModelSerializer):
     project = ProjectSerializer(read_only=True)
     status = StatusSerializer(read_only=True)
-    status = TypeSerializer(read_only=True)
+    type = TypeSerializer(read_only=True)
 
     class Meta:
         model = Tasks

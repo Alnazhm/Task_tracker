@@ -8,16 +8,16 @@ from api.serializers import ProjectSerializer, TaskSerializer
 class TaskDetailView(APIView):
 
     def get(self, request, *args, **kwargs):
-        objects = Tasks.objects.filter(id=kwargs['pk'])
-        serializer = TaskSerializer(objects, many=True)
+        objects = Tasks.objects.get(id=kwargs['pk'])
+        serializer = TaskSerializer(objects)
         return Response(serializer.data)
 
 
 class ProjectDetailView(APIView):
 
     def get(self, request, *args, **kwargs):
-        objects = Project.objects.filter(id=kwargs['pk'])
-        serializer = ProjectSerializer(objects, many=True)
+        objects = Project.objects.get(id=kwargs['pk'])
+        serializer = ProjectSerializer(objects)
         return Response(serializer.data)
 
 
